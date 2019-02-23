@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import { Header, Footer } from './components';
 import Jokes from './pages/jokes/Jokes';
+import Login from './pages/login/Login';
+import './App.scss';
 
 /**
  * App component.
@@ -14,12 +16,15 @@ import Jokes from './pages/jokes/Jokes';
 const App = () => (
   <div className="jokes-container">
     <Header />
-    <BrowserRouter>
-      <Switch>
-        <Redirect from="/" exact to="/jokes" />
-        <Route path="/jokes" component={Jokes} />
-      </Switch>
-    </BrowserRouter>
+    <section className="container-fluid px-4 pt-4">
+      <BrowserRouter>
+        <Switch>
+          <Redirect from="/" exact to="/jokes" />
+          <Route path="/jokes" component={Jokes} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </BrowserRouter>
+    </section>
     <Footer />
   </div>
 );

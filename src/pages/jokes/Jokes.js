@@ -68,29 +68,27 @@ class Jokes extends Component {
     const { jokes, favoriteJokes, loading } = this.state;
 
     return (
-      <div className="container-fluid px-4 pt-4">
-        <div className="row">
-          <div className="col-md-6 col-sm-12 mb-4">
-            <div className="card">
-              <List
-                title={`Jokes (${jokes.length})`}
-                btnCaption="View more"
-                loader={loading}
-                items={jokes}
-                onHeaderAction={this.loadJokes}
-                onFavoriteClick={this.onFavoriteClick}
-              />
-            </div>
+      <div className="row">
+        <div className="col-md-6 col-sm-12 mb-4">
+          <div className="card">
+            <List
+              title={`Jokes (${jokes.length})`}
+              btnCaption="View more"
+              loader={loading}
+              items={jokes}
+              onHeaderAction={this.loadJokes}
+              onFavoriteClick={this.onFavoriteClick}
+            />
           </div>
-          <div className="col-md-6 col-sm-12 mb-4">
-            <div className="card">
-              <List
-                favorite
-                title="Favorite Jokes"
-                items={favoriteJokes}
-                onFavoriteClick={this.onFavoriteClick}
-              />
-            </div>
+        </div>
+        <div className="col-md-6 col-sm-12 mb-4">
+          <div className="card">
+            <List
+              favorite
+              title="Favorite Jokes"
+              items={favoriteJokes}
+              onFavoriteClick={this.onFavoriteClick}
+            />
           </div>
         </div>
       </div>
