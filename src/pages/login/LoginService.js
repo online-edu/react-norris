@@ -16,4 +16,9 @@ const validatePassword = password => true;
  */
 const createUserSession = username => session.startSession(username);
 
-export { createUserSession, validatePassword };
+/**
+ * Clear older user session.
+ */
+const clearUserSession = () => session.endSession();
+
+export { createUserSession, validatePassword, clearUserSession };

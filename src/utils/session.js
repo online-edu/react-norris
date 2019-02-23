@@ -8,7 +8,13 @@ export default {
    *
    * @param {string} username - user id
    */
-  startSession: username => sessionStorage.setItem(sessionKey, atob(`${username}${Date.now()}`)),
+  startSession: (username) => {
+    const user = {
+      username,
+      token: atob(`${username}${Date.now()}`),
+    };
+    sessionStorage.setItem(sessionKey, JSON.stringify(user));
+  },
   /**
    * End user sesssion on log out.
    */

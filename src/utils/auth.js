@@ -10,7 +10,22 @@ export default {
    * @returns {boolean}
    */
   isUserLoggedIn: () => {
-    const currentSession = session.getSession(this);
+    const currentSession = session.getSession();
     return currentSession !== null;
+  },
+  /**
+   * Get username to display on hedaer.
+   *
+   * @returns {boolean}
+   */
+  getUser: () => {
+    let currentSession = session.getSession();
+    let username;
+    if (currentSession) {
+      currentSession = JSON.parse(currentSession);
+      username = currentSession.username;
+      return username;
+    }
+    return username;
   },
 };
