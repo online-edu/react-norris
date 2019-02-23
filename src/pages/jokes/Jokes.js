@@ -46,6 +46,7 @@ class Jokes extends Component {
    * Load jokes once component is mounted.
    */
   loadJokes() {
+    this.setState({ loading: true });
     loadJokes()
       .then(jokes => this.setState({ jokes, loading: false }))
       .catch(err => this.handleError(err));
@@ -86,7 +87,6 @@ class Jokes extends Component {
               <List
                 favorite
                 title="Favorite Jokes"
-                loader={loading}
                 items={favoriteJokes}
                 onFavoriteClick={this.onFavoriteClick}
               />
