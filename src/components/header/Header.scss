@@ -1,0 +1,16 @@
+@import '../../styles/colors';
+
+.jokes-header {
+  box-shadow: 0px 0px 40px 0px $light-shadow;
+  background-color: $white !important;
+  height: 75px;
+  .jokes-header__brand {
+    position: relative;
+    span {
+      font-size: 34px;
+      position: absolute;
+      top: -5px;
+      right: -45px;
+    }
+  }
+}
