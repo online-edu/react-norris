@@ -24,7 +24,7 @@ class Jokes extends Component {
   }
 
   /**
-   * Call `loadJokes()` and fetch fa once component is mounted.
+   *  Fetch jokes from API and localStorage once component is mounted.
    */
   componentDidMount() {
     this.loadJokes();
@@ -32,7 +32,7 @@ class Jokes extends Component {
   }
 
   /**
-   * On favortite click of particular joke
+   * On favorite click of particular joke update the lists.
    *
    * @param {Object} joke - joke
    * @param {boolean} fav - fav or un-fav
