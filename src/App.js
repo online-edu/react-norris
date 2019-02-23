@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-const myApp = 'Welcome to Chuck Norris Jokes!';
-
+import Jokes from './pages/jokes/Jokes';
+/**
+ * App component.
+ */
 class App extends Component {
   render() {
-    return <div>{myApp}</div>;
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Redirect from="/" exact to="/jokes" />
+          <Route path="/jokes" component={Jokes} />
+        </Switch>
+      </BrowserRouter>
+    );
   }
 }
 
