@@ -1,0 +1,7 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "./colors";
+@import "./override";
+
+$theme-colors: (
+  primary: $primary
+);

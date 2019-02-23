@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700');
+@import './styles/theme';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+html,
+body,
+#app {
+  height: 100%;
+}
