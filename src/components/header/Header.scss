@@ -1,0 +1,68 @@
+@import '../../styles/colors';
+
+.jokes-header {
+  box-shadow: 0px 0px 40px 0px $light-shadow;
+  background-color: $white !important;
+  height: 75px;
+  .jokes-header__brand {
+    position: relative;
+    span {
+      font-size: 34px;
+      position: absolute;
+      top: -5px;
+      right: -30px;
+    }
+  }
+  .jokes-header__user-dropdown {
+    position: relative;
+    display: inline-block;
+    .jokes-header__user-dropdown-btn {
+      display: flex;
+      color: $link;
+      align-items: center;
+      .jokes-header__user--avatar {
+        font-size: 36px;
+      }
+    }
+    &:hover {
+      border-radius: 24px;
+      transition: all 0.3s;
+      background-color: rgba(lighten($primary, 60), 0.5);
+      .jokes-header__user-dropdown-content {
+        display: block;
+      }
+    }
+    .jokes-header__user-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: $white;
+      min-width: 175px;
+      box-shadow: 0px 0px 50px 0px $deep-shadow;
+      z-index: 2;
+      border-radius: 8px;
+      overflow: hidden;
+      animation: fadeInDown 0.5s;
+      a {
+        color: $link;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: 0.5;
+        &:hover {
+          background-color: $link-light;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

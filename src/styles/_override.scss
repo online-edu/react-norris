@@ -1,4 +1,7 @@
 @import "./colors";
 
+$radius: 0.5rem;
 $font-family-sans-serif: "Roboto", "Helvetica Neue", Arial, sans-serif;
 $body-bg: $body-bg-color;
+$card-border-width: 0;
+$card-border-radius: $radius;
