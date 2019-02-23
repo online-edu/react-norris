@@ -50,6 +50,8 @@ const List = ({
 List.defaultProps = {
   loader: false,
   favorite: false,
+  btnCaption: undefined,
+  onHeaderAction: () => {},
 };
 /**
  * List props types.
@@ -58,11 +60,11 @@ List.propTypes = {
   /** Header title */
   title: PropTypes.string.isRequired,
   /** Button caption */
-  btnCaption: PropTypes.string.isRequired,
+  btnCaption: PropTypes.string,
   /** Toggle spinner */
   loader: PropTypes.bool,
   /** Gets called when the header button is clicked. */
-  onHeaderAction: PropTypes.func.isRequired,
+  onHeaderAction: PropTypes.func,
   /** Gets called when the fav button is clicked. */
   onFavoriteClick: PropTypes.func.isRequired,
   /** List of items */

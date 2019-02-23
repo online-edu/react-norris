@@ -26,6 +26,7 @@ const ListHeader = ({
  */
 ListHeader.defaultProps = {
   loader: false,
+  btnCaption: undefined,
 };
 /**
  * List item props types.
@@ -34,7 +35,7 @@ ListHeader.propTypes = {
   /** Header title */
   title: PropTypes.string.isRequired,
   /** Button caption */
-  btnCaption: PropTypes.string.isRequired,
+  btnCaption: PropTypes.string,
   /** Toggle spinner */
   loader: PropTypes.bool,
   /** Gets called when the button is clicked. */
