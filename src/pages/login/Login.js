@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { validatePassword, createUserSession } from './LoginService';
 import { route } from '../../utils/config';
 import './Login.scss';
@@ -7,6 +8,16 @@ import './Login.scss';
  * Jokes component.
  */
 class Login extends Component {
+  /**
+   * Login props types.
+   */
+  static get propTypes() {
+    return {
+      /** History object */
+      history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+    };
+  }
+
   /**
    * Intilalizes the state and binds all methods.
    *

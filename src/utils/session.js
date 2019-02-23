@@ -5,7 +5,7 @@ import { sessionKey } from './config';
 export default {
   /**
    * Creates user session on successful login.
-   * 
+   *
    * @param {string} username - user id
    */
   startSession: username => sessionStorage.setItem(sessionKey, atob(`${username}${Date.now()}`)),
