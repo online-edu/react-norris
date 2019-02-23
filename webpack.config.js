@@ -6,6 +6,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  entry: ['@babel/polyfill', './src'],
   module: {
     rules: [
       {
