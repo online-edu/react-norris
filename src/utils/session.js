@@ -5,21 +5,16 @@ import { sessionKey } from './config';
 export default {
   /**
    * Creates user session on successful login.
+   * 
+   * @param {string} username - user id
    */
-  startSession(username) {
-    const now = Date.now();
-    sessionStorage.setItem(sessionKey, atob(`${username}${now}`));
-  },
+  startSession: username => sessionStorage.setItem(sessionKey, atob(`${username}${Date.now()}`)),
   /**
    * End user sesssion on log out.
    */
-  endSession() {
-    sessionStorage.removeItem(sessionKey);
-  },
+  endSession: () => sessionStorage.removeItem(sessionKey),
   /**
    * Return current sesssion of user.
    */
-  getSession() {
-    return sessionStorage.getItem(sessionKey);
-  },
+  getSession: () => sessionStorage.getItem(sessionKey),
 };
