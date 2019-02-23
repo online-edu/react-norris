@@ -17,11 +17,14 @@ class Jokes extends Component {
       jokes: [],
       favoriteJokes: [],
       loading: true,
+      loadingFavorite: false,
       error: false,
       errMsg: '',
     };
     this.loadJokes = this.loadJokes.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
+    this.onSwitchToggle = this.onSwitchToggle.bind(this);
+    this.timer;
   }
 
   /**
@@ -41,6 +44,39 @@ class Jokes extends Component {
   onFavoriteClick({ item: joke, fav }) {
     const jokes = onFavorite(joke, fav);
     this.setState({ favoriteJokes: jokes });
+  }
+
+  /**
+   * On switch toggle generate random jokes.
+   *
+   * @param {Event} e - an input event
+   */
+  onSwitchToggle({ target }) {
+    const { checked } = target;
+    if (checked) {
+      this.setState({ loadingFavorite: true });
+      this.timer = setInterval(() => this.ticker(), 1000);
+    } else this.clearTimer();
+  }
+
+  /**
+   * On every tick fetch a random joke and update list.
+   */
+  ticker() {
+    const { favoriteJokes } = this.state;
+    if (favoriteJokes.length < 10) {
+      loadJokes(1)
+        .then(([joke]) => this.onFavoriteClick({ item: joke, fav: true }))
+        .catch(err => this.handleError(err));
+    } else this.clearTimer();
+  }
+
+  /**
+   * Clear the interval.
+   */
+  clearTimer() {
+    clearInterval(this.timer);
+    this.setState({ loadingFavorite: false });
   }
 
   /**
@@ -66,7 +102,7 @@ class Jokes extends Component {
    * Render method for component
    */
   render() {
-    const { jokes, favoriteJokes, loading } = this.state;
+    const { jokes, favoriteJokes, loading, loadingFavorite } = this.state;
 
     return (
       <div>
@@ -91,7 +127,10 @@ class Jokes extends Component {
                   favorite
                   title="Favorite Jokes"
                   items={favoriteJokes}
+                  loader={loadingFavorite}
                   onFavoriteClick={this.onFavoriteClick}
+                  switchCaption="Random Joke"
+                  onSwitchToggle={this.onSwitchToggle}
                 />
               </div>
             </div>
