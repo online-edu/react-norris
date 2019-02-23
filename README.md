@@ -16,3 +16,5 @@ Chuck Norris jokes for developers, a sample app which is built using ReactJS v16
 1.  Build the app
     1.  Build - `npm run build` or `yarn build`
     2.  Check `./dist` folder
+1.  Run linter
+    1.  Hit - `npm run lint` or `yarn lint`
