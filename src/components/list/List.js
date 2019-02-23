@@ -17,6 +17,8 @@ const List = ({
   favorite,
   onHeaderAction,
   onFavoriteClick,
+  switchCaption,
+  onSwitchToggle,
 }) => (
   <ul className="list-group jokes-list">
     <TransitionGroup>
@@ -25,9 +27,11 @@ const List = ({
         loader={loader}
         btnCaption={btnCaption}
         onBtnClick={onHeaderAction}
+        switchCaption={switchCaption}
+        onSwitchToggle={onSwitchToggle}
       />
-      {items
-        && items.map(item => (
+      {items &&
+        items.map(item => (
           <CSSTransition key={item.id} timeout={500} classNames="fade">
             <ListItem
               item={item}
@@ -52,6 +56,8 @@ List.defaultProps = {
   favorite: false,
   btnCaption: undefined,
   onHeaderAction: () => {},
+  switchCaption: undefined,
+  onSwitchToggle: () => {},
 };
 /**
  * List props types.
@@ -71,6 +77,9 @@ List.propTypes = {
   items: PropTypes.array.isRequired,
   /** Fav or not fav visibility */
   favorite: PropTypes.bool,
+  switchCaption: PropTypes.string,
+  /** Gets called when the switch is toggled. */
+  onSwitchToggle: PropTypes.func,
 };
 
 export default List;
