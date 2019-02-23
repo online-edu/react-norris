@@ -20,6 +20,6 @@ export default {
    * Return current sesssion of user.
    */
   getSession() {
-    sessionStorage.getItem(sessionKey);
+    return sessionStorage.getItem(sessionKey);
   },
 };
