@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { validatePassword, createUserSession } from './LoginService';
+import { Header } from '../../components';
+import {
+  validatePassword,
+  createUserSession,
+  clearUserSession,
+} from './LoginService';
 import { route } from '../../utils/config';
 import './Login.scss';
 
@@ -33,6 +38,7 @@ class Login extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    clearUserSession();
   }
 
   /**
@@ -68,45 +74,50 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="row justify-content-center align-items-center jokes-login">
-        <div className="col-md-4 col-sm-12 mb-4">
-          <div className="card">
-            <div className="card-body">
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="userName">Username</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="userName"
-                    name="username"
-                    aria-describedby="userNameHelp"
-                    placeholder="Enter username"
-                    value={username}
-                    onChange={this.handleChange}
-                  />
+      <div>
+        <Header />
+        <section className="container-fluid px-4 pt-4">
+          <div className="row justify-content-center align-items-center jokes-login">
+            <div className="col-md-4 col-sm-12 mb-4">
+              <div className="card">
+                <div className="card-body">
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="userName">Username</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="userName"
+                        name="username"
+                        aria-describedby="userNameHelp"
+                        placeholder="Enter username"
+                        value={username}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <button type="submit" className="btn btn-primary">
+                        Login
+                      </button>
+                    </div>
+                  </form>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="d-flex justify-content-center">
-                  <button type="submit" className="btn btn-primary">
-                    Login
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     );
   }

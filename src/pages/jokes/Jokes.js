@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { List } from '../../components';
+import { List, Header } from '../../components';
+import auth from '../../utils/auth';
 import { loadJokes, onFavorite, loadFavoriteJokes } from './JokesService';
 /**
  * Jokes component.
@@ -68,29 +69,34 @@ class Jokes extends Component {
     const { jokes, favoriteJokes, loading } = this.state;
 
     return (
-      <div className="row">
-        <div className="col-md-6 col-sm-12 mb-4">
-          <div className="card">
-            <List
-              title={`Jokes (${jokes.length})`}
-              btnCaption="View more"
-              loader={loading}
-              items={jokes}
-              onHeaderAction={this.loadJokes}
-              onFavoriteClick={this.onFavoriteClick}
-            />
+      <div>
+        <Header user={auth.getUser()} />
+        <section className="container-fluid px-4 pt-4">
+          <div className="row">
+            <div className="col-md-6 col-sm-12 mb-4">
+              <div className="card">
+                <List
+                  title={`Jokes (${jokes.length})`}
+                  btnCaption="View more"
+                  loader={loading}
+                  items={jokes}
+                  onHeaderAction={this.loadJokes}
+                  onFavoriteClick={this.onFavoriteClick}
+                />
+              </div>
+            </div>
+            <div className="col-md-6 col-sm-12 mb-4">
+              <div className="card">
+                <List
+                  favorite
+                  title="Favorite Jokes"
+                  items={favoriteJokes}
+                  onFavoriteClick={this.onFavoriteClick}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="col-md-6 col-sm-12 mb-4">
-          <div className="card">
-            <List
-              favorite
-              title="Favorite Jokes"
-              items={favoriteJokes}
-              onFavoriteClick={this.onFavoriteClick}
-            />
-          </div>
-        </div>
+        </section>
       </div>
     );
   }

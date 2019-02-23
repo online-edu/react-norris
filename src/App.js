@@ -17,15 +17,14 @@ import './App.scss';
  */
 const App = () => (
   <div className="jokes-container">
-    <Header />
-    <section className="container-fluid px-4 pt-4">
+    <section>
       <BrowserRouter>
         <Switch>
           <Redirect from="/" exact to="/jokes" />
           <Route
             path="/jokes"
             render={() =>
-              auth.isUserLoggedIn() ? <Jokes /> : <Redirect to={route.login} />
+              (auth.isUserLoggedIn() ? <Jokes /> : <Redirect to={route.login} />)
             }
           />
           <Route path={route.login} component={Login} />
