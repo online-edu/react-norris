@@ -1,3 +1,6 @@
+/**
+ * Jest configuration
+ */
 module.exports = {
   setupFiles: ['./src/setupTests.js'],
   moduleNameMapper: {

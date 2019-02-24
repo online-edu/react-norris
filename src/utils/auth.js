@@ -19,13 +19,11 @@ export default {
    * @returns {boolean}
    */
   getUser: () => {
-    let currentSession = session.getSession();
-    let username;
+    const currentSession = session.getSession();
     if (currentSession) {
-      currentSession = JSON.parse(currentSession);
-      username = currentSession.username;
+      const { username } = JSON.parse(currentSession);
       return username;
     }
-    return username;
+    return 'Guest';
   },
 };

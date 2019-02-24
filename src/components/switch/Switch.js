@@ -17,7 +17,7 @@ const Switch = ({ switchToggle, id, label }) => (
     <label
       className="custom-control-label"
       htmlFor={id}
-      aria-label={`${label} filter`}
+      aria-label={`${label} checkboz`}
       aria-describedby={id}
     >
       {label}

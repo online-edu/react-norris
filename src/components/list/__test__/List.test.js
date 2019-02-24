@@ -45,4 +45,10 @@ describe('<List />', () => {
     component.setProps({ items: [] });
     expect(component.props().items.length).toBeLessThan(1);
   });
+
+  it('simulates click events', () => {
+    const component = shallow(wrapper);
+    component.find(ListItem).simulate('favoriteClick');
+    expect(onFavoriteClick).toHaveBeenCalledTimes(1);
+  });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ListItem from '../ListItem';
 import FavButton from '../../fav-button';
 
@@ -28,5 +28,11 @@ describe('<ListItem />', () => {
   it('contains a FavButton ', () => {
     const component = shallow(wrapper);
     expect(component.find(FavButton)).toHaveLength(1);
+  });
+
+  it('simulates click events', () => {
+    const component = shallow(wrapper);
+    component.find(FavButton).simulate('click');
+    expect(onFavClick).toHaveBeenCalledTimes(1);
   });
 });
