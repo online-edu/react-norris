@@ -30,8 +30,8 @@ const List = ({
         switchCaption={switchCaption}
         onSwitchToggle={onSwitchToggle}
       />
-      {items &&
-        items.map(item => (
+      {items
+        && items.map(item => (
           <CSSTransition key={item.id} timeout={500} classNames="fade">
             <ListItem
               item={item}
@@ -74,7 +74,7 @@ List.propTypes = {
   /** Gets called when the fav button is clicked. */
   onFavoriteClick: PropTypes.func.isRequired,
   /** List of items */
-  items: PropTypes.array.isRequired,
+  items: PropTypes.instanceOf(Array).isRequired,
   /** Fav or not fav visibility */
   favorite: PropTypes.bool,
   switchCaption: PropTypes.string,

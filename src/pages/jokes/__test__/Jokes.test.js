@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Jokes from '../Jokes';
 import { List } from '../../../components';
-import { loadJokes, loadFavoriteJokes } from '../JokesService';
+import { loadJokes } from '../JokesService';
 
 describe('<Jokes />', () => {
   it('renders correctly', () => {
@@ -25,11 +25,11 @@ describe('<Jokes />', () => {
   it('componentDidMount should fetch, and put jokes in state', () => {
     const wrapper = shallow(<Jokes />);
     return loadJokes()
-      .then(jokes => {
+      .then((jokes) => {
         wrapper.setState({ jokes });
         expect(wrapper.state('jokes')[0]).toContain('joke');
       })
-      .catch(err => {
+      .catch((err) => {
         wrapper.setState({ loading: false });
         expect(wrapper.state('loading')).toBe(false);
         expect(err).toBeDefined();

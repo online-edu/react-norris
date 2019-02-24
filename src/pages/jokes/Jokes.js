@@ -24,7 +24,7 @@ class Jokes extends Component {
     this.loadJokes = this.loadJokes.bind(this);
     this.onFavoriteClick = this.onFavoriteClick.bind(this);
     this.onSwitchToggle = this.onSwitchToggle.bind(this);
-    this.timer;
+    this.timer = {};
   }
 
   /**
@@ -102,7 +102,14 @@ class Jokes extends Component {
    * Render method for component
    */
   render() {
-    const { jokes, favoriteJokes, loading, loadingFavorite } = this.state;
+    const {
+      jokes,
+      favoriteJokes,
+      loading,
+      loadingFavorite,
+      error,
+      errMsg,
+    } = this.state;
 
     return (
       <div>
@@ -110,6 +117,11 @@ class Jokes extends Component {
         <section className="container-fluid px-4 pt-4">
           <div className="row">
             <div className="col-md-6 col-sm-12 mb-4">
+              {error && (
+                <div className="alert alert-danger" role="alert">
+                  {errMsg}
+                </div>
+              )}
               <div className="card">
                 <List
                   title={`Jokes (${jokes.length})`}
@@ -129,7 +141,7 @@ class Jokes extends Component {
                   items={favoriteJokes}
                   loader={loadingFavorite}
                   onFavoriteClick={this.onFavoriteClick}
-                  switchCaption="Random Joke"
+                  switchCaption="Random?"
                   onSwitchToggle={this.onSwitchToggle}
                 />
               </div>

@@ -6,19 +6,12 @@ import PropTypes from 'prop-types';
  */
 class FavButton extends Component {
   /**
-   * FavButton default props.
-   */
-  // static defaultProps = {
-  //   favorite: false,
-  // };
-
-  /**
    * FavButton props types.
    */
   static get propTypes() {
     return {
       /** Get fav ot not fav flag */
-      favorite: PropTypes.bool,
+      favorite: PropTypes.bool.isRequired,
       /** Gets called when the fav button is clicked. */
       onClick: PropTypes.func.isRequired,
     };

@@ -7,7 +7,7 @@ import { formErrors } from '../../utils/config';
  * @param {string} password - Password
  * @returns {Object}
  */
-const validatePassword = password => {
+const validatePassword = (password) => {
   let error = [];
   const ignoreCharacters = /(i|I|o)/;
   const onlyLowerCase = /([A-Z|0-9])/;
@@ -29,12 +29,11 @@ const validatePassword = password => {
   }
 
   pwdAscii.every((charCode, i) => {
-    let currrent = charCode;
-    let next = pwdAscii[i + 1];
+    const currrent = charCode;
+    const next = pwdAscii[i + 1];
     // Sequence such as abc or def
     if (!sequencePattern) {
-      sequencePattern =
-        currrent + 1 === next && currrent + 2 === pwdAscii[i + 2];
+      sequencePattern = currrent + 1 === next && currrent + 2 === pwdAscii[i + 2];
     }
     // Pair such as aa or bb
     if (!pairPattern) {

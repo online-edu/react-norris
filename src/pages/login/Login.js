@@ -108,9 +108,12 @@ class Login extends Component {
                         value={password}
                         onChange={this.handleChange}
                       />
-                      {formErrors.map((error, i) => (
-                        <div className="invalid-feedback" key={i}>
-                          <strong>{error.label}:&nbsp;</strong>
+                      {formErrors.map(error => (
+                        <div className="invalid-feedback" key={error.id}>
+                          <strong>
+                            {error.label}
+                            :&nbsp;
+                          </strong>
                           {error.message}
                         </div>
                       ))}

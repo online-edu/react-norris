@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import { Header, Footer } from './components';
+import { Footer } from './components';
 import Jokes from './pages/jokes/Jokes';
 import Login from './pages/login/Login';
 import auth from './utils/auth';
@@ -23,8 +23,7 @@ const App = () => (
           <Redirect from="/" exact to="/jokes" />
           <Route
             path="/jokes"
-            render={() =>
-              (auth.isUserLoggedIn() ? <Jokes /> : <Redirect to={route.login} />)
+            render={() => (auth.isUserLoggedIn() ? <Jokes /> : <Redirect to={route.login} />)
             }
           />
           <Route path={route.login} component={Login} />
