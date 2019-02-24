@@ -20,6 +20,7 @@
 
 ##### Documentation Changes
 
+*  update readme ([b9ac2254](https://github.com/online-edu/react-norris/commit/b9ac2254410be2ff436c4c7e83157b565766ee40))
 *  update readme and changelog ([cfd9423f](https://github.com/online-edu/react-norris/commit/cfd9423f24232d14e589a4a93e43e46ee911b974))
 *  fix comments ([2223ac44](https://github.com/online-edu/react-norris/commit/2223ac440d5ecd7f9b0cd82b6ce8404f042c1fd5))
 *  add comments ([5b697106](https://github.com/online-edu/react-norris/commit/5b6971062a8e24e27efc99b19d107b3a044aeacb))
@@ -31,6 +32,14 @@
 
 ##### New Features
 
+* **component:**
+  *  add not-found ([928e77fc](https://github.com/online-edu/react-norris/commit/928e77fccf8d0c75a8c3550fd9ffb6dbea868502))
+  *  add switch option in list header ([9d3319e0](https://github.com/online-edu/react-norris/commit/9d3319e0c44a6811a7932bde6fc69d7e61e03551))
+  *  add username and logout ([16914b74](https://github.com/online-edu/react-norris/commit/16914b74b5712ed3f2e3d849174589982f388b24))
+  *  add switch ([7583f0e3](https://github.com/online-edu/react-norris/commit/7583f0e370506cd9eada07342250833d01a12c89))
+  *  add footer ([eaf79261](https://github.com/online-edu/react-norris/commit/eaf792613f628b18233fc4423bb27fd465141a5e))
+  *  add list, header and fav-button ([80bacbe6](https://github.com/online-edu/react-norris/commit/80bacbe60dfb55cb8666b8a4f15b7f205d0067fa))
+  *  add spinner ([c0876bdc](https://github.com/online-edu/react-norris/commit/c0876bdc2128e514ebb4f5508f6688166122ae8c))
 *  add validation in login page and test cases ([fe008b2a](https://github.com/online-edu/react-norris/commit/fe008b2a6d726daae70bb7308d6ffc5513cd7547))
 *  add joke and login view ([3067e81a](https://github.com/online-edu/react-norris/commit/3067e81a0d9dfe60f9a1be7d9860739c6eff1776))
 *  add auth service ([b5c21469](https://github.com/online-edu/react-norris/commit/b5c214699f568d3f5d9bd4ec648cd9b99232d67a))
@@ -43,13 +52,6 @@
   *  add random joke generation capability ([c24d2e3c](https://github.com/online-edu/react-norris/commit/c24d2e3cac3dff8a511c3d6701121f39793cecca))
   *  add login ([39465b39](https://github.com/online-edu/react-norris/commit/39465b39a1f4df670d71d50eccea4cca5414f3d1))
   *  add jokes component ([78e3a355](https://github.com/online-edu/react-norris/commit/78e3a3557157f65c4adfb2845f02973b89d8af75))
-* **component:**
-  *  add switch option in list header ([9d3319e0](https://github.com/online-edu/react-norris/commit/9d3319e0c44a6811a7932bde6fc69d7e61e03551))
-  *  add username and logout ([16914b74](https://github.com/online-edu/react-norris/commit/16914b74b5712ed3f2e3d849174589982f388b24))
-  *  add switch ([7583f0e3](https://github.com/online-edu/react-norris/commit/7583f0e370506cd9eada07342250833d01a12c89))
-  *  add footer ([eaf79261](https://github.com/online-edu/react-norris/commit/eaf792613f628b18233fc4423bb27fd465141a5e))
-  *  add list, header and fav-button ([80bacbe6](https://github.com/online-edu/react-norris/commit/80bacbe60dfb55cb8666b8a4f15b7f205d0067fa))
-  *  add spinner ([c0876bdc](https://github.com/online-edu/react-norris/commit/c0876bdc2128e514ebb4f5508f6688166122ae8c))
 
 ##### Bug Fixes
 
@@ -80,6 +82,7 @@
 
 ##### Code Style Changes
 
+*  fix fallback view position ([cae26d54](https://github.com/online-edu/react-norris/commit/cae26d54d5c6b7508d882a9a48b7db1450d4ca43))
 *  reduce text size ([ea457084](https://github.com/online-edu/react-norris/commit/ea457084925ba99a232ac64d736df22c8bbc0738))
 *  ui improvements ([3d57b7c6](https://github.com/online-edu/react-norris/commit/3d57b7c6394b572677a6999ac5b15ed01b06c3d3))
 *  fix margin for spinner ([886edd04](https://github.com/online-edu/react-norris/commit/886edd0490bcd46f04fcb8b403410c0325fd3581))
