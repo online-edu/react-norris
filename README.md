@@ -2,6 +2,10 @@
 
 Chuck Norris jokes for developers, a sample app which is built using ReactJS v16, Bootstrap v4, SCSS, HTML, and JavaScript, and building tool is Webpack.
 
+## Demo
+
+Visit [`http://norris.onlineedu.in`](http://norris.onlineedu.in)
+
 ## Run app locally
 
 1.  Install [NodeJS](https://nodejs.org/en/download/)
@@ -19,6 +23,12 @@ Chuck Norris jokes for developers, a sample app which is built using ReactJS v16
 1.  Run the tests
     1.  Hit - `npm test` or `yarn test`
     1.  Hit - `npm run test:w` or `yarn test:w` for watch mode
-    1.  Hit - `npm run test:c` or `yarn test:c`
+    1.  Hit - `npm run test:c` or `yarn test:c` for coverage
 1.  Run linter
     1.  Hit - `npm run lint` or `yarn lint`
+
+## Enhancement
+
+- PostCSS
+- IndexDB
+- Redux
