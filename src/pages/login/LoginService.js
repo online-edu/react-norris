@@ -9,30 +9,19 @@ import { formErrors } from '../../utils/config';
  */
 const validatePassword = (password) => {
   let error = [];
-  const ignoreCharacters = /(i|I|o)/;
-  const onlyLowerCase = /([A-Z|0-9])/;
-  const tooLongPassword = password.length >= 32;
   const pwdAscii = password.split('').map(c => c.charCodeAt());
   let sequencePattern = false;
   let pairPattern = false;
   let pairs = [];
 
-  if (password.match(ignoreCharacters)) {
-    error = [...error, formErrors.ignoreCase];
-  }
-
-  if (password.match(onlyLowerCase)) {
-    error = [...error, formErrors.lowerCase];
-  }
-
   pwdAscii.every((charCode, i) => {
     const currrent = charCode; // current character ascii value
     const next = pwdAscii[i + 1]; // next character ascii value
-    // Sequence such as abc or def
+    /** Sequential characters are required up to 3, e.g. abc. */
     if (!sequencePattern) {
       sequencePattern = currrent + 1 === next && currrent + 2 === pwdAscii[i + 2];
     }
-    // Pair such as aa or bb
+    /** Check for pairs for the same charaters at least two, e.g aa, bb. */
     if (pairs.length < 2) {
       if (next === currrent) {
         const [firstPair] = pairs;
@@ -43,12 +32,17 @@ const validatePassword = (password) => {
         pairs = [...pairs, [next, currrent]];
       }
     }
-
     return !(sequencePattern && pairPattern);
   });
-
-  error = tooLongPassword ? [formErrors.longPassword] : error;
+  /** Check i,I,O is exist in password. */
+  error = password.match(/(i|I|o)/) ? [...error, formErrors.ignoreCase] : error;
+  /** Allow only lower case in password. */
+  error = password.match(/([A-Z|0-9])/) ? [...error, formErrors.lowerCase] : error;
+  /** Length should not be more than 32. */
+  error = password.length >= 32 ? [formErrors.longPassword] : error;
+  /** Sequential characters are required up to 3. */
   error = sequencePattern ? error : [...error, formErrors.sequencePattern];
+  /** Check for pairs for the same charaters at least two. */
   error = pairPattern ? error : [...error, formErrors.pairPattern];
 
   return error.length > 0 ? { valid: false, error } : { valid: true };
