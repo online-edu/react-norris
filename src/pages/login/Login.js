@@ -10,7 +10,7 @@ import { route } from '../../utils/config';
 import './Login.scss';
 
 /**
- * Jokes component.
+ * Login component.
  */
 class Login extends Component {
   /**
@@ -31,8 +31,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: false,
-      errMsg: '',
+      formErrors: [],
       username: '',
       password: '',
     };
@@ -50,9 +49,12 @@ class Login extends Component {
     e.preventDefault();
     const { username, password } = this.state;
     const { history } = this.props;
-    if (validatePassword(password)) {
+    const { valid, error: formErrors } = validatePassword(password);
+    if (valid) {
       createUserSession(username);
       history.push(route.jokes);
+    } else {
+      this.setState({ formErrors });
     }
   }
 
@@ -71,7 +73,7 @@ class Login extends Component {
    * Render method for component
    */
   render() {
-    const { username, password } = this.state;
+    const { username, password, formErrors } = this.state;
 
     return (
       <div>
@@ -106,6 +108,12 @@ class Login extends Component {
                         value={password}
                         onChange={this.handleChange}
                       />
+                      {formErrors.map((error, i) => (
+                        <div className="invalid-feedback" key={i}>
+                          <strong>{error.label}:&nbsp;</strong>
+                          {error.message}
+                        </div>
+                      ))}
                     </div>
                     <div className="d-flex justify-content-center">
                       <button type="submit" className="btn btn-primary">
