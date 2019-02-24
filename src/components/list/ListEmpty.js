@@ -12,7 +12,7 @@ const ListEmpty = () => (
     >
       😑
     </span>
-    <p className="h4 jokes-list__item-empty">
+    <p className="h6 jokes-list__item-empty">
       No fav jokes? Who cares! Let&apos;s choose...
       <span role="img" aria-label="Upside-Down Face">
         🙃
