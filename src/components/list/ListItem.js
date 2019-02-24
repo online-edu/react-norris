@@ -22,7 +22,7 @@ ListItem.propTypes = {
   favorite: PropTypes.bool.isRequired,
   /** Gets called when the fav button is clicked. */
   onFavoriteClick: PropTypes.func.isRequired,
-  /** Movie details */
+  /** Joke details */
   item: PropTypes.shape({ joke: PropTypes.string.isRequired }).isRequired,
 };
 
