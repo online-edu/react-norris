@@ -29,4 +29,10 @@ describe('<ListItem />', () => {
     const component = shallow(wrapper);
     expect(component.find(FavButton)).toHaveLength(1);
   });
+
+  it('simulates click events', () => {
+    const component = shallow(wrapper);
+    component.find(FavButton).simulate('click');
+    expect(onFavClick).toHaveBeenCalledTimes(1);
+  });
 });
