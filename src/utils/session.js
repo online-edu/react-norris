@@ -11,7 +11,7 @@ export default {
   startSession: (username) => {
     const user = {
       username,
-      token: atob(`${username}${Date.now()}`),
+      token: `${username}${Date.now()}`,
     };
     sessionStorage.setItem(sessionKey, JSON.stringify(user));
   },

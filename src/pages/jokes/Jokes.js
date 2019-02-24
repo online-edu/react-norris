@@ -55,7 +55,7 @@ class Jokes extends Component {
     const { checked } = target;
     if (checked) {
       this.setState({ loadingFavorite: true });
-      this.timer = setInterval(() => this.ticker(), 1000);
+      this.timer = setInterval(() => this.ticker(), 5000);
     } else this.clearTimer();
   }
 
