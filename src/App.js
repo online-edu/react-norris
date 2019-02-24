@@ -24,7 +24,13 @@ const Jokes = withRouter(
 const App = () => (
   <div className="jokes-container">
     <section>
-      <Suspense fallback={<Spinner className="d-flex justify-content-center" />}>
+    <Suspense
+        fallback={
+          <div className="jokes-container__fallback d-flex justify-content-center align-items-center">
+            <Spinner />
+          </div>
+        }
+      >
         <BrowserRouter>
           <Switch>
             <Redirect from="/" exact to="/jokes" />

@@ -1,5 +1,8 @@
 .jokes-container {
   section {
     min-height: calc(100vh - 130px);
+    .jokes-container__fallback {
+      min-height: 95vh;
+    }
   }
 }
