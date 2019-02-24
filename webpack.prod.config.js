@@ -1,3 +1,6 @@
+/**
+ * Webpack production configuration
+ */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -14,6 +17,8 @@ const cssPlugin = new MiniCssExtractPlugin({
   filename: '[name].[hash].css',
   chunkFilename: '[id].[hash].css',
 });
+
+const cleanPlugin = new CleanWebpackPlugin(['dist/*']);
 
 module.exports = {
   entry: ['@babel/polyfill', './src'],
@@ -54,5 +59,5 @@ module.exports = {
       chunks: 'all',
     },
   },
-  plugins: [htmlPlugin, cssPlugin, new CleanWebpackPlugin(['dist/*'])],
+  plugins: [htmlPlugin, cssPlugin, cleanPlugin],
 };

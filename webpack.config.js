@@ -1,3 +1,6 @@
+/**
+ * Webpack default configuration
+ */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlPlugin = new HtmlWebpackPlugin({
