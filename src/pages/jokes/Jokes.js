@@ -114,7 +114,7 @@ class Jokes extends Component {
     return (
       <div>
         <Header user={auth.getUser()} />
-        <section className="container-fluid px-4 pt-4">
+        <section className="container-fluid px-4 pt-4 mt-2">
           <div className="row">
             <div className="col-md-6 col-sm-12 mb-4">
               {error && (
@@ -125,7 +125,7 @@ class Jokes extends Component {
               <div className="card">
                 <List
                   title={`Jokes (${jokes.length})`}
-                  btnCaption="View more"
+                  btnCaption="More fun"
                   loader={loading}
                   items={jokes}
                   onHeaderAction={this.loadJokes}
@@ -141,7 +141,7 @@ class Jokes extends Component {
                   items={favoriteJokes}
                   loader={loadingFavorite}
                   onFavoriteClick={this.onFavoriteClick}
-                  switchCaption="Random?"
+                  switchCaption="Random"
                   onSwitchToggle={this.onSwitchToggle}
                 />
               </div>

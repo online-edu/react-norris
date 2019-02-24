@@ -6,7 +6,7 @@ import FavButton from '../fav-button';
  * List item component.
  */
 const ListItem = ({ favorite, item, onFavoriteClick }) => (
-  <li className="list-group-item d-flex justify-content-between align-items-center">
+  <li className="list-group-item d-flex justify-content-between align-items-center jokes-list__item--divider">
     {item.joke}
     <FavButton
       favorite={favorite}

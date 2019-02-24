@@ -1,7 +1,14 @@
-@import "../../styles/colors";
+@import '../../styles/colors';
 .jokes-list {
   .jokes-list__item {
     min-height: 64px;
+    border-bottom: $list-divider;
+  }
+  .jokes-list__item--divider {
+    border-bottom: $list-divider;
+    &:last-child {
+      border-bottom: none;
+    }
   }
   .jokes-list__item-empty-emoticon {
     font-size: 8em;

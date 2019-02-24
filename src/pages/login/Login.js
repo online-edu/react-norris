@@ -92,7 +92,7 @@ class Login extends Component {
                         id="userName"
                         name="username"
                         aria-describedby="userNameHelp"
-                        placeholder="Enter username"
+                        placeholder="Enter username 😃"
                         value={username}
                         onChange={this.handleChange}
                         required
@@ -105,12 +105,12 @@ class Login extends Component {
                         className="form-control"
                         id="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="Enter password 🤔"
                         value={password}
                         onChange={this.handleChange}
                       />
                       {formErrors.map(error => (
-                        <div className="invalid-feedback" key={error.id}>
+                        <div className="invalid-feedback my-1" key={error.id}>
                           <strong>
                             {error.label}
                             :&nbsp;
