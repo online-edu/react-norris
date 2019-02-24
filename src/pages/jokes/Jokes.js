@@ -85,7 +85,10 @@ class Jokes extends Component {
   loadJokes() {
     this.setState({ loading: true });
     loadJokes()
-      .then(jokes => this.setState({ jokes, loading: false }))
+      .then((newJokes) => {
+        const { jokes } = this.state;
+        this.setState({ jokes: [...newJokes, ...jokes], loading: false });
+      })
       .catch(err => this.handleError(err));
   }
 
