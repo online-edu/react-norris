@@ -95,6 +95,7 @@ class Login extends Component {
                         placeholder="Enter username"
                         value={username}
                         onChange={this.handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
