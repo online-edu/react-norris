@@ -6,7 +6,7 @@ import {
   Redirect,
   withRouter,
 } from 'react-router-dom';
-import { Footer, Spinner } from './components';
+import { Footer, Spinner, NotFound } from './components';
 import Login from './pages/login/Login';
 import auth from './utils/auth';
 import { route } from './utils/config';
@@ -24,7 +24,7 @@ const Jokes = withRouter(
 const App = () => (
   <div className="jokes-container">
     <section>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner className="d-flex justify-content-center" />}>
         <BrowserRouter>
           <Switch>
             <Redirect from="/" exact to="/jokes" />
@@ -33,6 +33,7 @@ const App = () => (
               render={() => (auth.isUserLoggedIn() ? <Jokes /> : <Redirect to={route.login} />)}
             />
             <Route path={route.login} component={Login} />
+            <Route exact path="**" component={NotFound} />
           </Switch>
         </BrowserRouter>
       </Suspense>

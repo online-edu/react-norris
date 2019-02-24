@@ -4,6 +4,7 @@ import Header from './header';
 import List from './list';
 import Spinner from './spinner';
 import Switch from './switch';
+import NotFound from './not-found';
 
 export {
   Spinner,
@@ -12,4 +13,5 @@ export {
   FavButton,
   Header,
   Footer,
+  NotFound,
 };
