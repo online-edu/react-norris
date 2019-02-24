@@ -10,9 +10,8 @@ describe('<Jokes />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('renders a <List /> component', () => {
+  it('renders two <List /> component', () => {
     const wrapper = shallow(<Jokes />);
-    wrapper.setState({ showModal: true });
     expect(wrapper.find(List)).toHaveLength(2);
   });
 
@@ -21,5 +20,19 @@ describe('<Jokes />', () => {
     const wrapper = shallow(<Jokes />);
     wrapper.update();
     expect(Jokes.prototype.componentDidMount).toBeCalledTimes(1);
+  });
+
+  it('componentDidMount should fetch, and put jokes in state', () => {
+    const wrapper = shallow(<Jokes />);
+    return loadJokes()
+      .then(jokes => {
+        wrapper.setState({ jokes });
+        expect(wrapper.state('jokes')[0]).toContain('joke');
+      })
+      .catch(err => {
+        wrapper.setState({ loading: false });
+        expect(wrapper.state('loading')).toBe(false);
+        expect(err).toBeDefined();
+      });
   });
 });
