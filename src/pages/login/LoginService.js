@@ -15,10 +15,7 @@ const validatePassword = (password) => {
   const pwdAscii = password.split('').map(c => c.charCodeAt());
   let sequencePattern = false;
   let pairPattern = false;
-
-  if (tooLongPassword) {
-    error = [formErrors.longPassword];
-  }
+  let pairs = [];
 
   if (password.match(ignoreCharacters)) {
     error = [...error, formErrors.ignoreCase];
@@ -29,20 +26,28 @@ const validatePassword = (password) => {
   }
 
   pwdAscii.every((charCode, i) => {
-    const currrent = charCode;
-    const next = pwdAscii[i + 1];
+    const currrent = charCode; // current character ascii value
+    const next = pwdAscii[i + 1]; // next character ascii value
     // Sequence such as abc or def
     if (!sequencePattern) {
       sequencePattern = currrent + 1 === next && currrent + 2 === pwdAscii[i + 2];
     }
     // Pair such as aa or bb
-    if (!pairPattern) {
-      pairPattern = next === currrent;
+    if (pairs.length < 2) {
+      if (next === currrent) {
+        const [firstPair] = pairs;
+        if (firstPair) {
+          const [first, second] = firstPair;
+          pairPattern = first !== currrent && second !== next;
+        }
+        pairs = [...pairs, [next, currrent]];
+      }
     }
 
     return !(sequencePattern && pairPattern);
   });
 
+  error = tooLongPassword ? [formErrors.longPassword] : error;
   error = sequencePattern ? error : [...error, formErrors.sequencePattern];
   error = pairPattern ? error : [...error, formErrors.pairPattern];
 
